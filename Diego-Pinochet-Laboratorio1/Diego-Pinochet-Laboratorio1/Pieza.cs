@@ -23,5 +23,10 @@ namespace Diego_Pinochet_Laboratorio1
             string info = tipo + " " + material + " " + cantidad;
             return info;
         }
+        public string infoMaterial()
+        {
+            string mat = material;
+            return mat;
+        }
     }
 }

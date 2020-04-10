@@ -25,9 +25,12 @@ namespace Diego_Pinochet_Laboratorio1
             throw new NotImplementedException();
         }
 
-        public override List<Pieza> reiniciado()
+        public override List<Pieza> reiniciado(List<Pieza> lista_pieza)
         {
-            throw new NotImplementedException();
+            lista_pieza.Clear();
+            Console.WriteLine("Se ha borrado la memoria.\n");
+            return lista_pieza;
         }
+    
     }
 }

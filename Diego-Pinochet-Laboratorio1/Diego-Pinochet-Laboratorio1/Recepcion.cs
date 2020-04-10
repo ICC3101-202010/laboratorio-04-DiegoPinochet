@@ -11,10 +11,9 @@ namespace Diego_Pinochet_Laboratorio1
     {
         protected override int memoria { get; set; }
 
-        private List<Pieza> lista_pieza = new List<Pieza>();
         private bool confirmar;
 
-        public bool confirmarRecepcion(int cantidad, Pieza pieza)
+        public bool confirmarRecepcion(int cantidad, Pieza pieza, List<Pieza> lista_pieza)
         {
             for(int i = 0; i < cantidad; i++)
             {
@@ -32,7 +31,7 @@ namespace Diego_Pinochet_Laboratorio1
 
             return confirmar;
         }
-        public void Info()
+        public void Info(List<Pieza> lista_pieza)
         {
             for (int i = 0; i < lista_pieza.Count(); i++)
             {
@@ -46,14 +45,14 @@ namespace Diego_Pinochet_Laboratorio1
             return x;
         }
 
-        public override List<Pieza> reiniciado()
+        public override List<Pieza> reiniciado(List<Pieza> lista_pieza)
         {
             lista_pieza.Clear();
             Console.WriteLine("Se ha borrado la memoria.\n");
             return lista_pieza;
         }
 
-        public override bool apagado(bool x)
+        public override bool apagado(bool x) // no se si esta bien hecho
         {
             return x;
         }
