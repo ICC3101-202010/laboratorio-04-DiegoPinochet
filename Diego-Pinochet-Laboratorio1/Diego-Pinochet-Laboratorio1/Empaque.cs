@@ -8,29 +8,27 @@ namespace Diego_Pinochet_Laboratorio1
 {
     class Empaque : Maquina
     {
-        protected override int memoria { get; set; }
+        public override int memoria { get => memoria; set => memoria = 0; }
+        public override string nombre { get => nombre; set => nombre = "Maquina Empaque"; }
 
-        public override bool apagado(bool x)
+        public int aumentarMemoria(int numero)
         {
-            throw new NotImplementedException();
+            if (numero == 5)
+            {
+                memoria++;
+            }
+
+            return memoria;
+        }
+        public override string getName()
+        {
+            return nombre;
+        }
+        public override void informarMemoria()
+        {
+            Console.WriteLine("Memoria: " + memoria + ".");
         }
 
-        public override bool encendido(bool x)
-        {
-            throw new NotImplementedException();
-        }
 
-        public override int informarMemoria()
-        {
-            throw new NotImplementedException();
-        }
-
-        public override List<Pieza> reiniciado(List<Pieza> lista_pieza)
-        {
-            lista_pieza.Clear();
-            Console.WriteLine("Se ha borrado la memoria.\n");
-            return lista_pieza;
-        }
-    
     }
 }

@@ -47,7 +47,7 @@
     <Compile Include="Empaque.cs" />
     <Compile Include="Ensamblaje.cs" />
     <Compile Include="Maquina.cs" />
-    <Compile Include="Pieza.cs" />
+    <Compile Include="PCcentral.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Recepcion.cs" />

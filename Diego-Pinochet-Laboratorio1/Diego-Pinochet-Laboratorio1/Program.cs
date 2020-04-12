@@ -11,52 +11,91 @@ namespace Diego_Pinochet_Laboratorio1
     {
         static void Main(string[] args)
         {
-            List<Pieza> lista_pieza = new List<Pieza>();
-            List<String> bodega = new List<string>();
+            Random random = new Random();
+            int hora = 8;
 
-            Pieza pieza = new Pieza("tornillo","cobre", 2);
-
+            PCcentral pc = new PCcentral();
             Recepcion recepcion = new Recepcion();
             Almacenamiento almacenamiento = new Almacenamiento();
             Ensamblaje ensamblaje = new Ensamblaje();
             Verificacion verificacion = new Verificacion();
             Empaque empaque = new Empaque();
-            
-            int memory;
 
             bool x = true;
-            while (x == true)
+
+            int on = pc.encendido(recepcion.getName());
+            if(on == 1)
             {
-                bool i = recepcion.encendido(recepcion.confirmarRecepcion(2, pieza, lista_pieza)); // cantidad debe ser variable
-                memory = recepcion.informarMemoria();
-                if(memory == 5)
+                on = pc.encendido(almacenamiento.getName());
+                if (on == 1)
                 {
-                    recepcion.reiniciado(lista_pieza); //vacia la lista de piezas --> se queda sin info.
-                }
-                else
-                {
-                    if(i == true)
+                    on = pc.encendido(ensamblaje.getName());
+                    if (on == 1)
                     {
-                        i = almacenamiento.encendido(almacenamiento.Storage(lista_pieza,bodega));
-                        memory = almacenamiento.informarMemoria();
-                        if(memory == 5)
+                        on = pc.encendido(verificacion.getName());
+                        if (on == 1)
                         {
-                            almacenamiento.reiniciado(lista_pieza);
-                        }
-                        else
-                        {
-                            if(i == true)
-                            {
-                                i = ensamblaje.encendido();
-                                memory = ensamblaje.informarMemoria();
-                            }
+                            pc.encendido(empaque.getName());
                         }
                     }
                 }
-
-                Console.WriteLine("Se ha acabado el día.\n");  
             }
-
+            while (x == true)
+            {
+                int memory1 = recepcion.aumentarMemoria(random.Next(6));
+                recepcion.informarMemoria();
+                if (memory1 == 10)
+                {
+                    pc.reiniciado(memory1);
+                }
+                int memory2 = almacenamiento.aumentarMemoria(random.Next(6));
+                almacenamiento.informarMemoria();
+                if (memory2 == 10)
+                {
+                    pc.reiniciado(memory2);
+                }
+                int memory3 = ensamblaje.aumentarMemoria(random.Next(6));
+                ensamblaje.informarMemoria();
+                if (memory2 == 10)
+                {
+                    pc.reiniciado(memory3);
+                }
+                int memory4 = verificacion.aumentarMemoria(random.Next(6));
+                verificacion.informarMemoria();
+                if (memory4 == 10)
+                {
+                    pc.reiniciado(memory4);
+                }
+                int memory5 = empaque.aumentarMemoria(random.Next(6));
+                empaque.informarMemoria();
+                if (memory2 == 10)
+                {
+                    pc.reiniciado(memory5);
+                }
+                if (hora == 19)
+                {
+                    break;
+                }
+                Console.WriteLine("La hora es: " + hora + ":00");
+                hora++;
+            }
+            int off = pc.apagado(recepcion.getName());
+            if (off == 0)
+            {
+                off = pc.apagado(almacenamiento.getName());
+                if (off == 0)
+                {
+                    off = pc.apagado(ensamblaje.getName());
+                    if (off == 0)
+                    {
+                        off = pc.apagado(verificacion.getName());
+                        if (off == 0)
+                        {
+                            pc.apagado(empaque.getName());
+                        }
+                    }
+                }
+            }
         }
     }
 }
