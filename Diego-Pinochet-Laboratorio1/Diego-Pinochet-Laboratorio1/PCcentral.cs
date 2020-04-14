@@ -10,17 +10,13 @@ namespace Diego_Pinochet_Laboratorio1
     {
         public int encendido(string name) 
         {
-            Console.WriteLine("Se ha encendido la maquina" + name);
+            Console.WriteLine("Se ha encendido la " + name);
             return 1;
         }
-        public int reiniciado(int memoria)
-        {
-            memoria = 0;
-            return memoria;
-        }
+        
         public int apagado(string name)
         {
-            Console.WriteLine("Se ha apagado la maquina" + name);
+            Console.WriteLine("Se ha apagado la " + name);
             return 0;
         }
     }

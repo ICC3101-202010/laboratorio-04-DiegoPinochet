@@ -9,8 +9,8 @@ namespace Diego_Pinochet_Laboratorio1
 {
     abstract class Maquina
     {
-        public abstract int memoria { get; set; }
-        public abstract string nombre { get; set; }
+        public abstract int Memoria { get; set; }
+        public abstract string Nombre { get; set; }
 
         public abstract void informarMemoria();
         public abstract string getName();

@@ -21,7 +21,20 @@ namespace Diego_Pinochet_Laboratorio1
             Verificacion verificacion = new Verificacion();
             Empaque empaque = new Empaque();
 
+            recepcion.Nombre = "Máquina Recepción";
+            almacenamiento.Nombre = "Máquina Almacenamiento";
+            ensamblaje.Nombre = "Máquina Ensamblaje";
+            verificacion.Nombre = "Máquina Verificación";
+            empaque.Nombre = "Máquina Empaque";
+
+            recepcion.Memoria = 0;
+            almacenamiento.Memoria = 0;
+            ensamblaje. Memoria = 0;
+            verificacion.Memoria = 0;
+            empaque.Memoria = 0;
+
             bool x = true;
+            
 
             int on = pc.encendido(recepcion.getName());
             if(on == 1)
@@ -42,41 +55,42 @@ namespace Diego_Pinochet_Laboratorio1
             }
             while (x == true)
             {
-                int memory1 = recepcion.aumentarMemoria(random.Next(6));
+                Console.WriteLine("La hora es: " + hora + ":00");
+
+                int memory1 = recepcion.aumentarMemoria(random.Next(4));
                 recepcion.informarMemoria();
-                if (memory1 == 10)
+                if (memory1 == 3)
                 {
-                    pc.reiniciado(memory1);
+                    recepcion.reiniciado();
                 }
-                int memory2 = almacenamiento.aumentarMemoria(random.Next(6));
+                int memory2 = almacenamiento.aumentarMemoria(random.Next(4));
                 almacenamiento.informarMemoria();
-                if (memory2 == 10)
+                if (memory2 == 3)
                 {
-                    pc.reiniciado(memory2);
+                    almacenamiento.reiniciado();
                 }
-                int memory3 = ensamblaje.aumentarMemoria(random.Next(6));
+                int memory3 = ensamblaje.aumentarMemoria(random.Next(4));
                 ensamblaje.informarMemoria();
-                if (memory2 == 10)
+                if (memory2 == 3)
                 {
-                    pc.reiniciado(memory3);
+                    ensamblaje.reiniciado();
                 }
-                int memory4 = verificacion.aumentarMemoria(random.Next(6));
+                int memory4 = verificacion.aumentarMemoria(random.Next(4));
                 verificacion.informarMemoria();
-                if (memory4 == 10)
+                if (memory4 == 3)
                 {
-                    pc.reiniciado(memory4);
+                    verificacion.reiniciado();
                 }
-                int memory5 = empaque.aumentarMemoria(random.Next(6));
+                int memory5 = empaque.aumentarMemoria(random.Next(4));
                 empaque.informarMemoria();
-                if (memory2 == 10)
+                if (memory2 == 3)
                 {
-                    pc.reiniciado(memory5);
+                    empaque.reiniciado();
                 }
                 if (hora == 19)
                 {
                     break;
                 }
-                Console.WriteLine("La hora es: " + hora + ":00");
                 hora++;
             }
             int off = pc.apagado(recepcion.getName());
