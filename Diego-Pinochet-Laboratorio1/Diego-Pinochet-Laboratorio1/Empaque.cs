@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace Diego_Pinochet_Laboratorio1
 {
-    class Empaque : Maquina
+    class Empaque:Maquina
     {
         private string name;
         private int memory;
@@ -33,31 +33,9 @@ namespace Diego_Pinochet_Laboratorio1
             }
         }
 
-        public override int aumentarMemoria(int numero)
-        {
-            if (numero == 1)
-            {
-                memory++;
-            }
-
-            return memory;
-        }
-        public override string getName()
-        {
-            string name_ = name;
-            return name_;
-        }
-
         public override void informarMemoria()
         {
-            Console.WriteLine("Memoria " + getName() + ": " + memory + ".");
-        }
-        public override int reiniciado()
-        {
-            Console.WriteLine("Memoria de " + getName() + " se a borrado.");
-            memory = 0;
-            return memory;
-
+            Console.WriteLine("Memoria " + name + ": " + memory + ".");
         }
     }
 }

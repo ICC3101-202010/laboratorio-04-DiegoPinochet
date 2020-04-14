@@ -14,9 +14,7 @@ namespace Diego_Pinochet_Laboratorio1
             Random random = new Random();
             int hora = 8;
             int cont = 0;
-            List<int> numbers = new List<int>() { 1, 2, 3, 4, 5 };
 
-            PCcentral pc = new PCcentral();
             Recepcion recepcion = new Recepcion();
             Almacenamiento almacenamiento = new Almacenamiento();
             Ensamblaje ensamblaje = new Ensamblaje();
@@ -37,21 +35,21 @@ namespace Diego_Pinochet_Laboratorio1
 
             bool x = true;
             bool u = true;
-            
 
-            int on = pc.encendido(recepcion.getName());
+
+            int on = recepcion.encendido();
             if(on == 1)
             {
-                on = pc.encendido(almacenamiento.getName());
+                on = almacenamiento.encendido();
                 if (on == 1)
                 {
-                    on = pc.encendido(ensamblaje.getName());
+                    on = ensamblaje.encendido();
                     if (on == 1)
                     {
-                        on = pc.encendido(verificacion.getName());
+                        on = verificacion.encendido();
                         if (on == 1)
                         {
-                            pc.encendido(empaque.getName());
+                            empaque.encendido();
                         }
                     }
                 }
@@ -61,43 +59,43 @@ namespace Diego_Pinochet_Laboratorio1
             {
                 Console.WriteLine("La hora es: " + hora + ":00\n");
 
-                int memory1 = recepcion.aumentarMemoria(random.Next(4));
+                int memory1 = recepcion.Recepcion(random.Next(4));
                 recepcion.informarMemoria();
                 if (memory1 == 3)
                 {
-                    Console.WriteLine("Se ha alcanzado la memoría máxima de " + recepcion.getName() + "(1)");
+                    Console.WriteLine("Se ha alcanzado la memoría máxima de " + recepcion.Nombre + "(1)");
                     cont++;
                     u = true;
                 }
-                int memory2 = almacenamiento.aumentarMemoria(random.Next(4));
+                int memory2 = almacenamiento.Almacenamiento(random.Next(4));
                 almacenamiento.informarMemoria();
                 if (memory2 == 3)
                 {
-                    Console.WriteLine("Se ha alcanzado la memoría máxima de " + almacenamiento.getName() + "(2)");
+                    Console.WriteLine("Se ha alcanzado la memoría máxima de " + almacenamiento.Nombre + "(2)");
                     cont++;
                     u = true;
                 }
-                int memory3 = ensamblaje.aumentarMemoria(random.Next(4));
+                int memory3 = ensamblaje.Ensamblaje(random.Next(4));
                 ensamblaje.informarMemoria();
                 if (memory3 == 3)
                 {
-                    Console.WriteLine("Se ha alcanzado la memoría máxima de " + ensamblaje.getName() + "(3)");
+                    Console.WriteLine("Se ha alcanzado la memoría máxima de " + ensamblaje.Nombre + "(3)");
                     cont++;
                     u = true;
                 }
-                int memory4 = verificacion.aumentarMemoria(random.Next(4));
+                int memory4 = verificacion.Verificacion(random.Next(4));
                 verificacion.informarMemoria();
                 if (memory4 == 3)
                 {
-                    Console.WriteLine("Se ha alcanzado la memoría máxima de " + verificacion.getName() + "(4)");
+                    Console.WriteLine("Se ha alcanzado la memoría máxima de " + verificacion.Nombre + "(4)");
                     cont++;
                     u = true;
                 }
-                int memory5 = empaque.aumentarMemoria(random.Next(4));
+                int memory5 = empaque.Empaque(random.Next(4));
                 empaque.informarMemoria();
                 if (memory5 == 3)
                 {
-                    Console.WriteLine("Se ha alcanzado la memoría máxima de " + empaque.getName() + "(5)");
+                    Console.WriteLine("Se ha alcanzado la memoría máxima de " + empaque.Nombre + "(5)");
                     cont++;
                     u = true;
                 }
@@ -156,19 +154,19 @@ namespace Diego_Pinochet_Laboratorio1
                 hora++;
             }
             Console.WriteLine("-------------------------------------------------------------------------");
-            int off = pc.apagado(recepcion.getName());
+            int off = recepcion.apagado();
             if (off == 0)
             {
-                off = pc.apagado(almacenamiento.getName());
+                off = almacenamiento.apagado();
                 if (off == 0)
                 {
-                    off = pc.apagado(ensamblaje.getName());
+                    off = ensamblaje.apagado();
                     if (off == 0)
                     {
-                        off = pc.apagado(verificacion.getName());
+                        off = verificacion.apagado();
                         if (off == 0)
                         {
-                            pc.apagado(empaque.getName());
+                            empaque.apagado();
                         }
                     }
                 }
