@@ -14,6 +14,8 @@ namespace Diego_Pinochet_Laboratorio1
 
         public abstract void informarMemoria();
         public abstract string getName();
+        public abstract int aumentarMemoria(int numero);
+        public abstract int reiniciado();
 
     }
 }

@@ -13,6 +13,8 @@ namespace Diego_Pinochet_Laboratorio1
         {
             Random random = new Random();
             int hora = 8;
+            int cont = 0;
+            List<int> numbers = new List<int>() { 1, 2, 3, 4, 5 };
 
             PCcentral pc = new PCcentral();
             Recepcion recepcion = new Recepcion();
@@ -34,6 +36,7 @@ namespace Diego_Pinochet_Laboratorio1
             empaque.Memoria = 0;
 
             bool x = true;
+            bool u = true;
             
 
             int on = pc.encendido(recepcion.getName());
@@ -53,46 +56,106 @@ namespace Diego_Pinochet_Laboratorio1
                     }
                 }
             }
+            Console.WriteLine("-------------------------------------------------------------------------");
             while (x == true)
             {
-                Console.WriteLine("La hora es: " + hora + ":00");
+                Console.WriteLine("La hora es: " + hora + ":00\n");
 
                 int memory1 = recepcion.aumentarMemoria(random.Next(4));
                 recepcion.informarMemoria();
                 if (memory1 == 3)
                 {
-                    recepcion.reiniciado();
+                    Console.WriteLine("Se ha alcanzado la memoría máxima de " + recepcion.getName() + "(1)");
+                    cont++;
+                    u = true;
                 }
                 int memory2 = almacenamiento.aumentarMemoria(random.Next(4));
                 almacenamiento.informarMemoria();
                 if (memory2 == 3)
                 {
-                    almacenamiento.reiniciado();
+                    Console.WriteLine("Se ha alcanzado la memoría máxima de " + almacenamiento.getName() + "(2)");
+                    cont++;
+                    u = true;
                 }
                 int memory3 = ensamblaje.aumentarMemoria(random.Next(4));
                 ensamblaje.informarMemoria();
-                if (memory2 == 3)
+                if (memory3 == 3)
                 {
-                    ensamblaje.reiniciado();
+                    Console.WriteLine("Se ha alcanzado la memoría máxima de " + ensamblaje.getName() + "(3)");
+                    cont++;
+                    u = true;
                 }
                 int memory4 = verificacion.aumentarMemoria(random.Next(4));
                 verificacion.informarMemoria();
                 if (memory4 == 3)
                 {
-                    verificacion.reiniciado();
+                    Console.WriteLine("Se ha alcanzado la memoría máxima de " + verificacion.getName() + "(4)");
+                    cont++;
+                    u = true;
                 }
                 int memory5 = empaque.aumentarMemoria(random.Next(4));
                 empaque.informarMemoria();
-                if (memory2 == 3)
+                if (memory5 == 3)
                 {
-                    empaque.reiniciado();
+                    Console.WriteLine("Se ha alcanzado la memoría máxima de " + empaque.getName() + "(5)");
+                    cont++;
+                    u = true;
+                }
+                if(cont != 0)
+                {
+                    while (u == true)
+                    { 
+                        Console.WriteLine("Desea reiniciar una máquina? (Si/No)");
+                        string decision = Console.ReadLine();
+                        Console.WriteLine("\n");
+
+                        if (decision == "Si")
+                        {
+                            Console.WriteLine("Qué máquina desea reiniciar? (1,2,3,4,5)");
+                            string num = Console.ReadLine();
+                            Console.WriteLine("\n");
+
+                            if (num == "1")
+                            {
+                                recepcion.reiniciado();
+                                cont--;
+                            }
+                            else if (num == "2")
+                            {
+                                almacenamiento.reiniciado();
+                                cont--;
+                            }
+                            else if (num == "3")
+                            {
+                                ensamblaje.reiniciado();
+                                cont--;
+                            }
+                            else if (num == "4")
+                            {
+                                verificacion.reiniciado();
+                                cont--;
+                            }
+                            else if (num == "5")
+                            {
+                                empaque.reiniciado();
+                                cont--;
+                            }
+
+                        }
+                        else
+                        {
+                            u = false;
+                        }
+                    }
                 }
                 if (hora == 19)
                 {
                     break;
                 }
+                Console.WriteLine("\n");
                 hora++;
             }
+            Console.WriteLine("-------------------------------------------------------------------------");
             int off = pc.apagado(recepcion.getName());
             if (off == 0)
             {

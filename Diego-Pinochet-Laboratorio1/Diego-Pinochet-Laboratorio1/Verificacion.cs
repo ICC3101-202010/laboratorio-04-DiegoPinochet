@@ -33,9 +33,9 @@ namespace Diego_Pinochet_Laboratorio1
             }
         }
 
-        public int aumentarMemoria(int numero)
+        public override int aumentarMemoria(int numero)
         {
-            if (numero == 2)
+            if (numero == 1)
             {
                 memory++;
             }
@@ -50,12 +50,11 @@ namespace Diego_Pinochet_Laboratorio1
 
         public override void informarMemoria()
         {
-            Console.WriteLine("Memoria: " + memory + ".");
+            Console.WriteLine("Memoria " + getName() + ": " + memory + ".");
         }
-
-        public int reiniciado()
+        public override int reiniciado()
         {
-            Console.WriteLine("Memoria de " + name + " se a borrado.");
+            Console.WriteLine("Memoria de " + getName() + " se a borrado.");
             memory = 0;
             return memory;
 
