@@ -15,6 +15,7 @@ namespace Diego_Pinochet_Laboratorio1
             int hora = 8;
             int cont = 0;
 
+            PcCentral pc = new PcCentral();
             Recepcion recepcion = new Recepcion();
             Almacenamiento almacenamiento = new Almacenamiento();
             Ensamblaje ensamblaje = new Ensamblaje();
@@ -37,19 +38,19 @@ namespace Diego_Pinochet_Laboratorio1
             bool u = true;
 
 
-            int on = recepcion.encendido();
+            int on = pc.encendido(recepcion);
             if(on == 1)
             {
-                on = almacenamiento.encendido();
+                on = pc.encendido(almacenamiento);
                 if (on == 1)
                 {
-                    on = ensamblaje.encendido();
+                    on = pc.encendido(ensamblaje);
                     if (on == 1)
                     {
-                        on = verificacion.encendido();
+                        on = pc.encendido(verificacion);
                         if (on == 1)
                         {
-                            empaque.encendido();
+                            pc.encendido(empaque);
                         }
                     }
                 }
@@ -115,27 +116,27 @@ namespace Diego_Pinochet_Laboratorio1
 
                             if (num == "1")
                             {
-                                recepcion.reiniciado();
+                                pc.reiniciado(recepcion);
                                 cont--;
                             }
                             else if (num == "2")
                             {
-                                almacenamiento.reiniciado();
+                                pc.reiniciado(almacenamiento);
                                 cont--;
                             }
                             else if (num == "3")
                             {
-                                ensamblaje.reiniciado();
+                                pc.reiniciado(ensamblaje);
                                 cont--;
                             }
                             else if (num == "4")
                             {
-                                verificacion.reiniciado();
+                                pc.reiniciado(verificacion);
                                 cont--;
                             }
                             else if (num == "5")
                             {
-                                empaque.reiniciado();
+                                pc.reiniciado(empaque);
                                 cont--;
                             }
 
@@ -154,19 +155,19 @@ namespace Diego_Pinochet_Laboratorio1
                 hora++;
             }
             Console.WriteLine("-------------------------------------------------------------------------");
-            int off = recepcion.apagado();
+            int off = pc.apagado(recepcion);
             if (off == 0)
             {
-                off = almacenamiento.apagado();
+                off = pc.apagado(almacenamiento);
                 if (off == 0)
                 {
-                    off = ensamblaje.apagado();
+                    off = pc.apagado(ensamblaje);
                     if (off == 0)
                     {
-                        off = verificacion.apagado();
+                        off = pc.apagado(verificacion);
                         if (off == 0)
                         {
-                            empaque.apagado();
+                            pc.apagado(empaque);
                         }
                     }
                 }

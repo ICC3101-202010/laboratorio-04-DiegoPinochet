@@ -14,28 +14,13 @@ namespace Diego_Pinochet_Laboratorio1
 
         public abstract void informarMemoria();
 
-        public int encendido()
-        {
-            Console.WriteLine("Se ha encendido la " + Nombre + ".");
-            return 1;
-        }
-        public int reiniciado()
-        {
-            Console.WriteLine("Se ha reiniciado la memoria de " + Nombre + ".");
-            Memoria = 0;
-            return Memoria;
-        }
-        public int apagado()
-        {
-            Console.WriteLine("Se ha apagado la " + Nombre + ".");
-            return 0;
-        }
-
         public int Recepcion(int numero)
         {
             if (numero == 1)
             {
                 Memoria++;
+            }
+            else if(Memoria == 10) { 
             }
 
             return Memoria;   

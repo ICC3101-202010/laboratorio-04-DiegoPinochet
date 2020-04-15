@@ -32,7 +32,6 @@ namespace Diego_Pinochet_Laboratorio1
                 this.memory = value;
             }
         }
-
         public override void informarMemoria()
         {
             Console.WriteLine("Memoria " + name + ": " + memory + ".");
