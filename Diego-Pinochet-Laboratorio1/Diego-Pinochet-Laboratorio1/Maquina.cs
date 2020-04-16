@@ -20,9 +20,7 @@ namespace Diego_Pinochet_Laboratorio1
             {
                 Memoria++;
             }
-            else if(Memoria == 10) { 
-            }
-
+            
             return Memoria;   
         }
 
