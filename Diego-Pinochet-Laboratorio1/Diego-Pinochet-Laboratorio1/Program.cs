@@ -117,26 +117,31 @@ namespace Diego_Pinochet_Laboratorio1
                             if (num == "1")
                             {
                                 pc.reiniciado(recepcion);
+                                recepcion.Memoria = pc.Memoria;
                                 cont--;
                             }
                             else if (num == "2")
                             {
                                 pc.reiniciado(almacenamiento);
+                                almacenamiento.Memoria = pc.Memoria;
                                 cont--;
                             }
                             else if (num == "3")
                             {
                                 pc.reiniciado(ensamblaje);
+                                ensamblaje.Memoria = pc.Memoria;
                                 cont--;
                             }
                             else if (num == "4")
                             {
                                 pc.reiniciado(verificacion);
+                                verificacion.Memoria = pc.Memoria;
                                 cont--;
                             }
                             else if (num == "5")
                             {
                                 pc.reiniciado(empaque);
+                                empaque.Memoria = pc.Memoria;
                                 cont--;
                             }
 

@@ -46,6 +46,7 @@
     <Compile Include="Almacenamiento.cs" />
     <Compile Include="Empaque.cs" />
     <Compile Include="Ensamblaje.cs" />
+    <Compile Include="IMemory.cs" />
     <Compile Include="IProcesos.cs" />
     <Compile Include="Maquina.cs" />
     <Compile Include="PcCentral.cs" />

@@ -7,10 +7,10 @@ using System.Threading.Tasks;
 
 namespace Diego_Pinochet_Laboratorio1
 {
-    abstract class Maquina:IProcesos
+    abstract class Maquina:IMemory
     {
-        public abstract int Memoria { get; set; }
         public abstract string Nombre { get; set; }
+        public abstract int Memoria { get; set; }
 
         public abstract void informarMemoria();
 
